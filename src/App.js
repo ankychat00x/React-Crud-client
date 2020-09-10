@@ -1,26 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route,Switch,Link} from 'react-router-dom';
+import GetAll from "./GetAll"
+import Get from "./Get"
+import Create from "./Create"
+import Update from "./Update"
+import Delete from "./Delete"
 
-function App() {
+class App extends React.Component {
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Products</h1>
+        <Switch>
+            <Route exact path="/" component={GetAll}/>
+            <Route path="/Get" component={Get}/>
+            <Route path="/Create" component={Create}/>
+            <Route path="/Update" component={Update}/>
+            <Route path="/Delete" component={Delete}/>
+
+        </Switch>
+        <Link to="/Get">Get</Link><br/>
+        <Link to="/Create">Create</Link><br/>
+        <Link to="/Update">Update</Link><br/>
+        <Link to="/Delete">Delete</Link><br/>
     </div>
   );
 }
-
+}
 export default App;
